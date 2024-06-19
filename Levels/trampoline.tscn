@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://c60pmbl7sni8a"]
+
+[ext_resource type="Script" path="res://Scripts/trampoline.gd" id="1_fq3tk"]
+[ext_resource type="Texture2D" uid="uid://mrfbis3wjrol" path="res://Assets/Abstract Platformer/PNG/Other/plantThorns_horizontal.png" id="1_i0nmr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_01ltl"]
+size = Vector2(128, 16)
+
+[node name="Trampoline" type="Area2D"]
+script = ExtResource("1_fq3tk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_01ltl")
+
+[node name="PlantThornsHorizontal1" type="Sprite2D" parent="."]
+position = Vector2(-32, 0)
+texture = ExtResource("1_i0nmr")
+
+[node name="PlantThornsHorizontal2" type="Sprite2D" parent="."]
+position = Vector2(32, 0)
+texture = ExtResource("1_i0nmr")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
